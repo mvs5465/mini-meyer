@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+  {% block body %}
+  <form action="{{ url_for('encrypt') }}" method=post class=encrypt>
+    <dl>
+      <dd>Data:
+      <dd><textarea name=text rows=5 cols=40></textarea>
+      <dd><input type=submit value=Encrypt>
+    </dl>
+  </form>
+  {% endblock %}

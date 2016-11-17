@@ -10,6 +10,9 @@
         <a href="{{ url_for('logout') }}">Logout</a>
         {% endif %}
     </div>
+    <div>
+      <a href="{{ url_for('encrypt') }}">Encrypt</a>
+    </div>
     {% for message in get_flashed_messages() %}
     <div class=flash>{{ message }} </div>
     {% endfor %}

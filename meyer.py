@@ -93,3 +93,19 @@ def logout():
   session.pop('logged_in', None)
   flash('You have been logged out.')
   return redirect(url_for('show_entries'))
+
+# Encrypt endpoint
+@app.route('/encrypt', methods=['GET', 'POST'])
+def encrypt():
+  if request.method == 'POST':
+    data = request.form['text']
+    ciphertext = encipher(data)
+    flash(ciphertext)
+    return redirect(url_for('encrypt'))
+  return render_template('encrypt.html') 
+
+# Actual "encryption" function
+def encipher(plain):
+  plain = plain.encode('ascii','replace')
+  cipher = plain.upper()
+  return cipher
